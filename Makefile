@@ -3,40 +3,61 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hrobin <hrobin@student.42.fr>              +#+  +:+       +#+         #
+#    By: lolaparr <lolaparr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/14 15:26:26 by hrobin            #+#    #+#              #
-#    Updated: 2023/07/14 16:51:01 by hrobin           ###   ########.fr        #
+#    Updated: 2023/07/15 14:44:04 by lolaparr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = minishell
+NAME		:= minishell
+SRC_DIR		:= src
+BUILD_DIR:= .build
+SRCS		:=  main.c \
+				parce.c \
+				builtins/echo.c \
+				builtins/pwd.c \
+				builtins/cd.c
 
-CC = cc
+SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
+OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)
+DEPS		:= $(OBJS:.o=.d)
 
-SRCS =	main.c \
-		parce.c
+CC			:= cc -g3
+CFLAGS		:= -Wall -Wextra -Werror
+CPPFLAGS	:= -MMD -MP -I include
+RM			:= rm -rf
+MAKEFLAGS	+= --no-print-directory
+DIR_DUP		= mkdir -p $(@D)
+LIBRARIES	:= -L libft -lft
+INCLUDES	:= -Ilibft/include
 
-OBJS = ${SRCS:.c=.o}
+all: $(NAME)
 
-INC = ./includes
+$(NAME): $(OBJS)
+	make -C libft
+	$(CC) $(OBJS) $(LIBRARIES) -lreadline -o $(NAME)
+	$(info CREATED $(NAME))
+	clear
 
-FLAGS = -Wall -Wextra -Werror -g3
+$(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
+	$(DIR_DUP)
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(INCLUDES) -c $< -o $@
+	$(info CREATED $@)
 
-.c.o:
-	${CC} ${FLAGS} -I${INC} -c $< -o ${<:.c=.o}
-
-${NAME}:    ${OBJS}
-	    ${CC} ${FLAGS} ${OBJS} -lreadline -o ${NAME}
-
-all:    ${NAME}
+-include $(DEPS)
 
 clean:
-	rm -f ${OBJS}
+	$(RM) $(OBJS) $(DEPS)
+	make -C libft clean
+	clear
 
 fclean: clean
-	rm -f ${NAME}
+	$(RM) $(NAME)
+	make -C libft fclean
+	clear
 
-re: fclean all
+re: clean all
 
-.PHONY: all clean fclean re
+.PHONY: all re clean fclean
+.SILENT:
