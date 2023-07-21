@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hrobin <hrobin@student.42.fr>              +#+  +:+       +#+         #
+#    By: lolaparr <lolaparr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/14 15:26:26 by hrobin            #+#    #+#              #
-#    Updated: 2023/07/18 20:46:35 by hrobin           ###   ########.fr        #
+#    Updated: 2023/07/21 14:12:14 by lolaparr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,7 @@ SRC_DIR		:= src
 BUILD_DIR:= .build
 SRCS		:=  main.c \
 				create_list.c \
+				expend.c \
 				builtins/echo.c \
 				builtins/pwd.c \
 				builtins/cd.c

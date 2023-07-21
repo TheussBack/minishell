@@ -6,7 +6,7 @@
 /*   By: lolaparr <lolaparr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 14:08:03 by lolaparr          #+#    #+#             */
-/*   Updated: 2023/07/21 14:08:06 by lolaparr         ###   ########.fr       */
+/*   Updated: 2023/07/21 14:57:58 by lolaparr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 #define MAX_INPUT_LENGTH 100
 
-int	main(int ac, char **av)
+int	main(int ac, char **av, char **env)
 {
 	char	*input;
+	char **str;
 
 	input = NULL;
 	while (1)
@@ -27,6 +28,8 @@ int	main(int ac, char **av)
 		add_history(input);
 		input[strcspn(input, "\n")] = '\0';
 		add_type(input);
+		// str = ft_split(input, ' ');
+		// main_expend(str, env);
 		free(input);
 	}
 	rl_clear_history();

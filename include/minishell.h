@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hrobin <hrobin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lolaparr <lolaparr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 15:25:16 by hrobin            #+#    #+#             */
-/*   Updated: 2023/07/20 14:24:40 by hrobin           ###   ########.fr       */
+/*   Updated: 2023/07/21 14:11:57 by lolaparr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void free_doubly_linked_list(t_types *head);
 t_types *string_to_doubly_linked_list(const char *input);
 t_types *create_node(void *valeur, int type);
 
+// expand //
+char **main_expend(char **str, char **env);
 
 // builtins //
 void	builtin_echo(char **str);

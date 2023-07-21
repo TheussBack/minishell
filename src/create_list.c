@@ -6,7 +6,7 @@
 /*   By: lolaparr <lolaparr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:24:15 by hrobin            #+#    #+#             */
-/*   Updated: 2023/07/21 14:08:24 by lolaparr         ###   ########.fr       */
+/*   Updated: 2023/07/21 14:12:25 by lolaparr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	add_type(char *input)
         if (*(char *)current->valeur == ' ' || *(char *)current->valeur == '\n'
             || *(char *)current->valeur == '\t')
             current->type = WSPACE;
-        if ()
+        // if ()
         printf("[%c,%d] ", *(char *)current->valeur,current->type);
         current = (t_types *)current->next;
     }
