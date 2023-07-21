@@ -6,7 +6,7 @@
 /*   By: lolaparr <lolaparr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 14:08:03 by lolaparr          #+#    #+#             */
-/*   Updated: 2023/07/21 14:57:58 by lolaparr         ###   ########.fr       */
+/*   Updated: 2023/07/21 16:20:05 by lolaparr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 int	main(int ac, char **av, char **env)
 {
 	char	*input;
-	char **str;
+	// char **str;
 
 	input = NULL;
 	while (1)
