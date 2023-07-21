@@ -6,7 +6,7 @@
 /*   By: lolaparr <lolaparr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 15:21:53 by hrobin            #+#    #+#             */
-/*   Updated: 2023/07/15 13:46:55 by lolaparr         ###   ########.fr       */
+/*   Updated: 2023/07/16 17:48:17 by lolaparr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,11 @@ void	parse_arguments(char *input)
 	char	*token;
 
 	// Utiliser strtok() pour découper l'entrée en arguments
+	printf("input : %s\n", input);
 	token = strtok_custom(input, " ");
 	while (token != NULL)
 	{
-		// printf("Argument : %s\n", token);
+		printf("Argument : %s\n", token);
 		token = strtok_custom(NULL, " ");
 	}
 }
