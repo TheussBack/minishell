@@ -6,7 +6,7 @@
 #    By: lolaparr <lolaparr@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/21 12:41:57 by lolaparr          #+#    #+#              #
-#    Updated: 2023/07/15 14:02:59 by lolaparr         ###   ########.fr        #
+#    Updated: 2023/07/21 14:07:30 by lolaparr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ SRCS		:= 	\
 			strings/ft_putchar_fd.c \
 			strings/ft_putstr_fd.c \
 			strings/ft_strncmp.c \
+			strings/ft_strlcpy.c \
 			lst/ft_lstadd_back.c \
 			lst/ft_lstadd_front.c \
 			lst/ft_lstclear.c \

@@ -6,7 +6,7 @@
 /*   By: lolaparr <lolaparr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/21 14:15:24 by lolaparr          #+#    #+#             */
-/*   Updated: 2023/07/15 14:03:14 by lolaparr         ###   ########.fr       */
+/*   Updated: 2023/07/21 14:07:11 by lolaparr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,5 +55,6 @@ int				ft_lstsize(t_lt *lst);
 void			ft_putstr_fd(char *s, int fd);
 void			ft_putchar_fd(char c, int fd);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
+size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 
 #endif

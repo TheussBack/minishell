@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lolaparr <lolaparr@student.42.fr>          +#+  +:+       +#+         #
+#    By: hrobin <hrobin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/14 15:26:26 by hrobin            #+#    #+#              #
-#    Updated: 2023/07/15 14:44:04 by lolaparr         ###   ########.fr        #
+#    Updated: 2023/07/18 20:46:35 by hrobin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		:= minishell
 SRC_DIR		:= src
 BUILD_DIR:= .build
 SRCS		:=  main.c \
-				parce.c \
+				create_list.c \
 				builtins/echo.c \
 				builtins/pwd.c \
 				builtins/cd.c
