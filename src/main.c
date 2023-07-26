@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolaparr <lolaparr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 14:08:03 by lolaparr          #+#    #+#             */
-/*   Updated: 2023/07/21 16:20:05 by lolaparr         ###   ########.fr       */
+/*   Updated: 2023/07/23 00:33:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #define MAX_INPUT_LENGTH 100
 
-int	main(int ac, char **av, char **env)
+int	main(int ac, char **av)
 {
 	char	*input;
 	// char **str;

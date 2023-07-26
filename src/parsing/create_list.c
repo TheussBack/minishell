@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolaparr <lolaparr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:24:15 by hrobin            #+#    #+#             */
-/*   Updated: 2023/07/21 14:12:25 by lolaparr         ###   ########.fr       */
+/*   Updated: 2023/07/26 18:30:19 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,15 +77,11 @@ void free_doubly_linked_list(t_types *head)
 void	add_type(char *input)
 {
     t_types *head = string_to_doubly_linked_list(input);
-
-    // on parcours la list
     t_types *current = head;
+    // on parcours la list
     while (current)
     {
-        if (*(char *)current->valeur == ' ' || *(char *)current->valeur == '\n'
-            || *(char *)current->valeur == '\t')
-            current->type = WSPACE;
-        // if ()
+        create_type(current);
         printf("[%c,%d] ", *(char *)current->valeur,current->type);
         current = (t_types *)current->next;
     }

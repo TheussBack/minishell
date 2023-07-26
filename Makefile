@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lolaparr <lolaparr@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/14 15:26:26 by hrobin            #+#    #+#              #
-#    Updated: 2023/07/21 14:12:14 by lolaparr         ###   ########.fr        #
+#    Updated: 2023/07/26 18:32:17 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,12 @@ NAME		:= minishell
 SRC_DIR		:= src
 BUILD_DIR:= .build
 SRCS		:=  main.c \
-				create_list.c \
-				expend.c \
+				parsing/create_list.c \
+				parsing/expend.c \
+				parsing/type.c \
 				builtins/echo.c \
 				builtins/pwd.c \
-				builtins/cd.c
+				builtins/cd.c \
 
 SRCS		:= $(SRCS:%=$(SRC_DIR)/%)
 OBJS		:= $(SRCS:$(SRC_DIR)/%.c=$(BUILD_DIR)/%.o)

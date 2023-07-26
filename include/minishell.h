@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lolaparr <lolaparr@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 15:25:16 by hrobin            #+#    #+#             */
-/*   Updated: 2023/07/21 14:11:57 by lolaparr         ###   ########.fr       */
+/*   Updated: 2023/07/26 18:57:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@
 # include <string.h>
 # include <unistd.h>
 
-# define CHAR 0
-# define WSPACE 1
+# define	ALNUM 0
+# define	WSPACE 1
+# define	PARAPSP 2
+# define	MCHAR 3
+
 
 // struct //
 
@@ -52,5 +55,8 @@ char **main_expend(char **str, char **env);
 void	builtin_echo(char **str);
 void	builtin_pwd(char **env);
 void	builtin_cd(int ac, char **av);
+
+// type //
+void	create_type(t_types *current);
 
 #endif
