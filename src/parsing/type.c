@@ -27,5 +27,15 @@ void	create_type(t_types *current)
             || *(char *)current->valeur == '&' || *(char *)current->valeur == '('
             || *(char *)current->valeur == ')' || *(char *)current->valeur == '<'
             || *(char *)current->valeur == '>')
-			current->type = MCHAR;
+			current->type = METACHAR;
+	if (*(char *)current->valeur == '*' || *(char *)current->valeur == '@'
+            || *(char *)current->valeur == '#' || *(char *)current->valeur == '?'
+            || *(char *)current->valeur == '!' || *(char *)current->valeur == '-'
+            || *(char *)current->valeur == '_' )
+			current->type = VAR_SPE_ENV;
+	if (*(char *)current->valeur == 34 || *(char *)current->valeur == 39)
+			current->type = QUOTES;
+	if (*(char *)current->valeur == '$')
+			current->type = DOLLAR;
 }
+

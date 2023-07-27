@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 14:08:03 by lolaparr          #+#    #+#             */
-/*   Updated: 2023/07/23 00:33:30 by marvin           ###   ########.fr       */
+/*   Updated: 2023/07/27 19:59:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int	main(int ac, char **av)
 		add_type(input);
 		// str = ft_split(input, ' ');
 		// main_expend(str, env);
+
 		free(input);
 	}
 	rl_clear_history();

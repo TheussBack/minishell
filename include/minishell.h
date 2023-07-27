@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 15:25:16 by hrobin            #+#    #+#             */
-/*   Updated: 2023/07/26 21:52:57 by marvin           ###   ########.fr       */
+/*   Updated: 2023/07/27 20:08:25 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,11 @@
 
 # define	ALNUM 0
 # define	WSPACE 1
-# define	PARAPSP 2
-# define	MCHAR 3
-
-// prout //
+# define	VAR_SPE_ENV 2
+# define	METACHAR 3
+# define	QUOTES 4
+# define	DOLLAR 5
+# define	NO_PRINTABLE 6
 
 // struct //
 
@@ -44,7 +45,6 @@ typedef struct s_types
 
 // create list //
 
-void	add_type(char *input);
 void free_doubly_linked_list(t_types *head);
 t_types *string_to_doubly_linked_list(const char *input);
 t_types *create_node(void *valeur, int type);
