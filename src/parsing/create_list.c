@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   create_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: louislaparre <louislaparre@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:24:15 by hrobin            #+#    #+#             */
-/*   Updated: 2023/07/27 21:01:23 by marvin           ###   ########.fr       */
+/*   Updated: 2023/08/02 17:55:32 by louislaparr      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
 // Function to create a new node for the doubly linked list
-t_types *create_node(void *valeur, int type)
+static t_types *create_node(void *valeur, int type)
 {
     t_types *node = (t_types *)malloc(sizeof(t_types));
     if (node)
@@ -27,7 +27,7 @@ t_types *create_node(void *valeur, int type)
 }
 
 // string a liste chainnnnn
-t_types *string_to_doubly_linked_list(const char *input)
+static t_types *string_to_doubly_linked_list(const char *input)
 {
     t_types *head = NULL;
     t_types *tail = NULL;
@@ -61,17 +61,17 @@ t_types *string_to_doubly_linked_list(const char *input)
 }
 
 
-void free_doubly_linked_list(t_types *head)
-{
-    t_types *current = head;
-    while (current)
-    {
-        t_types *next = (t_types *)current->next;
-        free(current->valeur);
-        free(current);
-        current = next;
-    }
-}
+//void free_doubly_linked_list(t_types *head)
+//{
+//    t_types *current = head;
+//    while (current)
+//    {
+//        t_types *next = (t_types *)current->next;
+//        free(current->valeur);
+//        free(current);
+//        current = next;
+//    }
+//}
 
 static void	add_type(t_types *current)
 {
@@ -79,17 +79,16 @@ static void	add_type(t_types *current)
     while (current)
     {
         create_type(current);
-        printf("[%c,%d] ", *(char *)current->valeur,current->type);
         current = (t_types *)current->next;
     }
 
-    free_doubly_linked_list(head);
+    //free_doubly_linked_list(head);
 
     return ;
 }
 
 //tg pute//
-void    change_quotes_type(t_types *head)
+static void    change_quotes_type(t_types *head)
 {
     t_types *current = head;
 
@@ -98,36 +97,76 @@ void    change_quotes_type(t_types *head)
         if (current->type == QUOTES && *(char *)current->valeur == 34) // double = 34 //
         {
             current->type = NO_PRINTABLE;
-            while (current->type != QUOTES && *(char *)current->valeur != 34)
+            printf("[%c,%d] ", *(char *)current->valeur,current->type);
+            current = (t_types *)current->next;
+            while (*(char *)current->valeur != 34)
             {
                 if (current->type != DOLLAR && current->type != VAR_SPE_ENV)
-                    currtent->type = ALNUM;
+                    current->type = ALNUM;
+                printf("[%c,%d] ", *(char *)current->valeur,current->type);
                 current = (t_types *)current->next;
             }
             current->type = NO_PRINTABLE;
         }
-        if (current->type == QUOTES && *(char *)current->valeur == 39)
+        if (current->type == QUOTES && *(char *)current->valeur == 39) // single = 39 //
         {
             current->type = NO_PRINTABLE;
-            while (current->type != QUOTES && *(char *)current->valeur != 39)
+            printf("[%c,%d] ", *(char *)current->valeur,current->type);
+            current = (t_types *)current->next;
+            while (*(char *)current->valeur != 39)
             {
-                currtent->type = ALNUM;
+                current->type = ALNUM;
+                printf("[%c,%d] ", *(char *)current->valeur,current->type);
                 current = (t_types *)current->next;
             }
             current->type = NO_PRINTABLE;
         }
+        printf("[%c,%d] ", *(char *)current->valeur,current->type);
         current = (t_types *)current->next;
     }
 
 }
 
+static void delete_no_printable(t_types *head)
+{
+    t_types *temp;
+    t_types *current = head;
+
+    printf("\n");
+    while (current != NULL)
+    {
+        if (current->type == NO_PRINTABLE)
+        {
+            //if (current->prev != NULL)
+            //    current->prev->next = current->next;
+            //else
+            //    head = (t_types *)current->next;
+
+            //if (current->next != NULL)
+            //    current->next->prev = current->prev;
+
+            temp = current;
+            current = (t_types *)current->next;
+            free(temp);
+        }
+        else
+            current = (t_types *)current->next;
+        printf("[%c,%d] ", *(char *)current->valeur,current->type);
+    }
+}
+
+// il faut rajouter les types pour le '=' //
+
 void    parsing_main(char *input)
 {
     t_types *head = string_to_doubly_linked_list(input);
     t_types *current = head;
+
     add_type(current);
-    destoy_quotes(head);
+    change_quotes_type(head);
+    delete_no_printable(head);
 }
+
 
 // void	print_input(char *input)
 // {

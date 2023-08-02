@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: louislaparre <louislaparre@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 15:25:16 by hrobin            #+#    #+#             */
-/*   Updated: 2023/07/27 20:08:25 by marvin           ###   ########.fr       */
+/*   Updated: 2023/07/31 14:20:31 by louislaparr      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,11 @@ typedef struct s_types
 
 // create list //
 
-void free_doubly_linked_list(t_types *head);
-t_types *string_to_doubly_linked_list(const char *input);
-t_types *create_node(void *valeur, int type);
+//void 	free_doubly_linked_list(t_types *head);
+void    parsing_main(char *input);
 
 // expand //
-char **main_expend(char **str, char **env);
+char 	**main_expend(char **str, char **env);
 
 // builtins //
 void	builtin_echo(char **str);
