@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: louislaparre <louislaparre@student.42.f    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:24:15 by hrobin            #+#    #+#             */
-/*   Updated: 2023/08/02 17:55:32 by louislaparr      ###   ########.fr       */
+/*   Updated: 2023/08/22 18:24:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,32 +127,46 @@ static void    change_quotes_type(t_types *head)
 
 }
 
+static void erase_And_Free_Node(t_types *node)
+{
+    // if (node == nullptr)
+    // {
+    //     return; // Nothing to erase if the node is nullptr
+    // }
+
+    t_types* prevNode = (t_types *)node->prev;
+    t_types* nextNode = (t_types *)node->next;
+
+    // Update previous node's next pointer
+    if (prevNode != NULL) {
+        (t_types *)prevNode->next = nextNode;
+    }
+
+    // Update next node's prev pointer
+    if (nextNode != NULL) {
+        (t_types *)nextNode->prev = prevNode;
+    }
+    // Update previous node's next pointer
+    free(node);
+}
+
 static void delete_no_printable(t_types *head)
 {
-    t_types *temp;
-    t_types *current = head;
+    t_types *tmp;
+    t_types *current;
 
-    printf("\n");
-    while (current != NULL)
+    current = head;
+    while (current)
     {
-        if (current->type == NO_PRINTABLE)
+        if (current->next->type == NO_PRINTABLE)
         {
-            //if (current->prev != NULL)
-            //    current->prev->next = current->next;
-            //else
-            //    head = (t_types *)current->next;
-
-            //if (current->next != NULL)
-            //    current->next->prev = current->prev;
-
-            temp = current;
-            current = (t_types *)current->next;
-            free(temp);
+            tmp = current;
+            tmp = (t_types *)tmp->next;
+            erase_And_Free_Node(tmp);
         }
-        else
-            current = (t_types *)current->next;
-        printf("[%c,%d] ", *(char *)current->valeur,current->type);
+        current = (t_types *)current->next;
     }
+
 }
 
 // il faut rajouter les types pour le '=' //
