@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:24:15 by hrobin            #+#    #+#             */
-/*   Updated: 2023/08/22 18:24:33 by marvin           ###   ########.fr       */
+/*   Updated: 2023/08/30 17:01:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static t_types *string_to_doubly_linked_list(const char *input)
         else
         {
 
-            tail->next = (struct t_types *)node;
+            tail->next = node;
             node->prev = tail;
             tail = node;
         }
@@ -81,7 +81,6 @@ static void	add_type(t_types *current)
         create_type(current);
         current = (t_types *)current->next;
     }
-
     //free_doubly_linked_list(head);
 
     return ;
@@ -127,47 +126,45 @@ static void    change_quotes_type(t_types *head)
 
 }
 
-static void erase_And_Free_Node(t_types *node)
-{
-    // if (node == nullptr)
-    // {
-    //     return; // Nothing to erase if the node is nullptr
-    // }
+// static void erase_And_Free_Node(t_types *node)
+// {
+//     struct s_types* prevNode = NULL;
+//     struct t_types* nextNode = NULL;
 
-    t_types* prevNode = (t_types *)node->prev;
-    t_types* nextNode = (t_types *)node->next;
+//     prevNode = node->prev;
+//     nextNode = node->next;
 
-    // Update previous node's next pointer
-    if (prevNode != NULL) {
-        (t_types *)prevNode->next = nextNode;
-    }
+//     // Update previous node's next pointer
+//     if (prevNode != NULL) {
+//         prevNode->next = nextNode;
+//     }
 
-    // Update next node's prev pointer
-    if (nextNode != NULL) {
-        (t_types *)nextNode->prev = prevNode;
-    }
-    // Update previous node's next pointer
-    free(node);
-}
+//     // Update next node's prev pointer
+//     if (nextNode != NULL) {
+//         nextNode->prev = prevNode;
+//     }
+//     // Update previous node's next pointer
+//     free(node);
+// }
 
-static void delete_no_printable(t_types *head)
-{
-    t_types *tmp;
-    t_types *current;
+// static void delete_no_printable(t_types *head)
+// {
+//     t_types *tmp;
+//     t_types *current;
 
-    current = head;
-    while (current)
-    {
-        if (current->next->type == NO_PRINTABLE)
-        {
-            tmp = current;
-            tmp = (t_types *)tmp->next;
-            erase_And_Free_Node(tmp);
-        }
-        current = (t_types *)current->next;
-    }
+//     current = head;
+//     while (current)
+//     {
+//         if (current->next->type == NO_PRINTABLE)
+//         {
+//             tmp = current;
+//             tmp = (t_types *)tmp->next;
+//             erase_And_Free_Node(tmp);
+//         }
+//         current = (t_types *)current->next;
+//     }
 
-}
+// }
 
 // il faut rajouter les types pour le '=' //
 
@@ -178,7 +175,11 @@ void    parsing_main(char *input)
 
     add_type(current);
     change_quotes_type(head);
-    delete_no_printable(head);
+    printf("\n");
+    check_wspaces(head);
+    create_double_tab(head);
+
+    // delete_no_printable(head);
 }
 
 

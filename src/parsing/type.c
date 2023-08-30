@@ -39,3 +39,19 @@ void	create_type(t_types *current)
 			current->type = DOLLAR;
 }
 
+void	check_wspaces(t_types *head)
+{
+	t_types *current = head;
+	bool	i;
+
+	i = false;
+	while (current)
+	{
+		if (current->type == QUOTES)
+			i = true;
+		if (i == false && current->type == WSPACE)
+			current->type = NO_PRINTABLE;
+		printf("[%c,%d] ", *(char *)current->valeur,current->type);
+		current = (t_types *)current->next;
+	}
+}

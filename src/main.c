@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: louislaparre <louislaparre@student.42.f    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 14:08:03 by lolaparr          #+#    #+#             */
-/*   Updated: 2023/07/31 14:17:56 by louislaparr      ###   ########.fr       */
+/*   Updated: 2023/08/28 15:25:34 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,3 @@ int	main(int ac, char **av)
 	printf("\n\nJ'ai lu : %s, %i\n", av[1], ac);
 	return (0);
 }
-
-//Gerer un prompt
-//visuellement
-//y rentrer des commandes
-//parser les arguments rentres
-//comme pipex ?
-//les exec
-//afficher

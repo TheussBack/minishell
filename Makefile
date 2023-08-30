@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/14 15:26:26 by hrobin            #+#    #+#              #
-#    Updated: 2023/07/26 18:32:17 by marvin           ###   ########.fr        #
+#    Updated: 2023/08/30 16:36:52 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRCS		:=  main.c \
 				parsing/create_list.c \
 				parsing/expend.c \
 				parsing/type.c \
+				parsing/double_tab.c \
 				builtins/echo.c \
 				builtins/pwd.c \
 				builtins/cd.c \

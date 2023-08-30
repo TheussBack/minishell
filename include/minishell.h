@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: louislaparre <louislaparre@student.42.f    +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/14 15:25:16 by hrobin            #+#    #+#             */
-/*   Updated: 2023/07/31 14:20:31 by louislaparr      ###   ########.fr       */
+/*   Updated: 2023/08/30 16:51:48 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ typedef struct s_types
 {
 	void			*valeur;
 	int				type;
-	struct t_types	*next;
+	struct s_types	*next;
 	struct s_types	*prev;
 }					t_types;
 
@@ -58,5 +58,8 @@ void	builtin_cd(int ac, char **av);
 
 // type //
 void	create_type(t_types *current);
+void	check_wspaces(t_types *head);
+
+int	create_double_tab(t_types *head);
 
 #endif
