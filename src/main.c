@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: louislaparre <louislaparre@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/21 14:08:03 by lolaparr          #+#    #+#             */
-/*   Updated: 2023/08/28 15:25:34 by marvin           ###   ########.fr       */
+/*   Updated: 2023/09/07 17:20:50 by louislaparr      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #define MAX_INPUT_LENGTH 100
 
-int	main(int ac, char **av)
+int	main(int ac, char **av, char **env)
 {
 	char	*input;
 	// char **str;
@@ -27,7 +27,7 @@ int	main(int ac, char **av)
 			break ;
 		add_history(input);
 		input[strcspn(input, "\n")] = '\0';
-		parsing_main(input);
+		parsing_main(input, env);
 		// str = ft_split(input, ' ');
 		// main_expend(str, env);
 

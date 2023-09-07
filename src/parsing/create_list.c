@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: louislaparre <louislaparre@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:24:15 by hrobin            #+#    #+#             */
-/*   Updated: 2023/08/30 17:01:15 by marvin           ###   ########.fr       */
+/*   Updated: 2023/09/07 17:23:48 by louislaparr      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,18 +166,35 @@ static void    change_quotes_type(t_types *head)
 
 // }
 
-//static bool var_env(t_types *head)
-//{
-//    t_types *current = head;
+static bool var_env(t_types *head)
+{
+    t_types *current = head;
 
-//    while (current)
-//    {
-//        if (current->type == DOLLAR)
-//            return (true);
-//        current = current->next;
-//    }
-//    return (false);
-//}
+    while (current)
+    {
+        if (current->type == DOLLAR)
+            return (true);
+        current = current->next;
+    }
+    return (false);
+}
+
+static void make_var_env(char ***tab, char **env)
+{
+    size_t  i = 0;
+    size_t  j = 0;
+
+    while (*tab[i])
+    {
+        while(*tab[i][j])
+        {
+            if (*tab[i][j] == '$')
+
+            ++j;
+        }
+        ++i;
+    }
+}
 
 // il faut rajouter les types pour le '=' //
 
@@ -186,15 +203,15 @@ void    parsing_main(char *input)
     t_types *head = string_to_doubly_linked_list(input);
     t_types *current = head;
     char    **tab;
-    //bool    env;
+    bool    env;
 
-    //env = false;
+    env = false;
     add_type(current);
     change_quotes_type(head);
     printf("\n");
     check_wspaces(head);
-    //if (var_env(head) == true)
-    //    env = true;
+    if (var_env(head) == true)
+        env = true;
     tab = split_sequence(head);
     printf("\n");
     int	a = 0;
@@ -203,8 +220,8 @@ void    parsing_main(char *input)
 		printf("tab[i] = %s\n", tab[a]);
 		++a;
 	}
-    //if (env == true)
-    //    make_var_env(tab);
+    if (env == true)
+        make_var_env(&tab, env);
 
     // delete_no_printable(head);
 }
