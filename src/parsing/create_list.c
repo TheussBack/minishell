@@ -166,18 +166,45 @@ static void    change_quotes_type(t_types *head)
 
 // }
 
+//static bool var_env(t_types *head)
+//{
+//    t_types *current = head;
+
+//    while (current)
+//    {
+//        if (current->type == DOLLAR)
+//            return (true);
+//        current = current->next;
+//    }
+//    return (false);
+//}
+
 // il faut rajouter les types pour le '=' //
 
 void    parsing_main(char *input)
 {
     t_types *head = string_to_doubly_linked_list(input);
     t_types *current = head;
+    char    **tab;
+    //bool    env;
 
+    //env = false;
     add_type(current);
     change_quotes_type(head);
     printf("\n");
     check_wspaces(head);
-    create_double_tab(head);
+    //if (var_env(head) == true)
+    //    env = true;
+    tab = split_sequence(head);
+    printf("\n");
+    int	a = 0;
+	while (tab[a])
+	{
+		printf("tab[i] = %s\n", tab[a]);
+		++a;
+	}
+    //if (env == true)
+    //    make_var_env(tab);
 
     // delete_no_printable(head);
 }

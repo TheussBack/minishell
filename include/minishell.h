@@ -60,6 +60,6 @@ void	builtin_cd(int ac, char **av);
 void	create_type(t_types *current);
 void	check_wspaces(t_types *head);
 
-int	create_double_tab(t_types *head);
+char **split_sequence(t_types *head);
 
 #endif

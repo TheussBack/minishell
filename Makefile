@@ -17,7 +17,7 @@ SRCS		:=  main.c \
 				parsing/create_list.c \
 				parsing/expend.c \
 				parsing/type.c \
-				parsing/double_tab.c \
+				parsing/split_sequence.c \
 				builtins/echo.c \
 				builtins/pwd.c \
 				builtins/cd.c \
