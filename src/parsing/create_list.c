@@ -6,7 +6,7 @@
 /*   By: hrobin <hrobin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:24:15 by hrobin            #+#    #+#             */
-/*   Updated: 2023/09/14 15:22:26 by hrobin           ###   ########.fr       */
+/*   Updated: 2023/09/14 15:27:32 by hrobin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -217,7 +217,7 @@ static void make_var_env(char ***tab, char ***env)
     char *word;
 
     word = find_env_word(tab, env); //on a donc le mot a chercher dans l'env//
-    if (is_it_env(word))
+    if (is_it_env(word)) //fonction qui va verif si le mot existe dans lenv// //peut etre quelle pourrait renvoyer directement le mot en question//
     {
         //remplacer le mot i guess?//
     }
