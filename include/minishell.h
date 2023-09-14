@@ -46,7 +46,7 @@ typedef struct s_types
 // create list //
 
 //void 	free_doubly_linked_list(t_types *head);
-void    parsing_main(char *input);
+void    parsing_main(char *input, char **env);
 
 // expand //
 char 	**main_expend(char **str, char **env);
@@ -61,5 +61,8 @@ void	create_type(t_types *current);
 void	check_wspaces(t_types *head);
 
 char **split_sequence(t_types *head);
+
+//utils//
+int	h_strcmp(char *s1, char *s2);
 
 #endif

@@ -20,6 +20,6 @@ void	count_words() // pour le malloc
 }
 
 void	doubly_linked_to_doubletab(t_types *head)
-{&
+{
 	while ()
 }

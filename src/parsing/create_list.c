@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: louislaparre <louislaparre@student.42.f    +#+  +:+       +#+        */
+/*   By: hrobin <hrobin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 20:24:15 by hrobin            #+#    #+#             */
-/*   Updated: 2023/09/07 17:23:48 by louislaparr      ###   ########.fr       */
+/*   Updated: 2023/09/14 15:22:26 by hrobin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,26 +179,56 @@ static bool var_env(t_types *head)
     return (false);
 }
 
-static void make_var_env(char ***tab, char **env)
+char *find_env_word(char ***tab, char ***env)
 {
     size_t  i = 0;
     size_t  j = 0;
+    size_t  k = 0;
+    char    *exp;
 
     while (*tab[i])
     {
         while(*tab[i][j])
         {
-            if (*tab[i][j] == '$')
+            if (*tab[i][j] == '$' && *tab[i][j + 1] == '?')
+                //faut remplacer par l'exit code
 
+            else if (*tab[i][j] == '$' && (*tab[i][j+ 1] != ' ' && (*tab[i][j+ 1] != '"' // ici je trouve le mot apres le dollar je le recup et je le garde pour le chercher plus tard dans l'env//
+					|| *tab[i][j+ 2] != '\0')) && *tab[i][j+ 1] != '\0')                   //exp c'est pour expend c'est une variale ou je met le mot//
+            {
+                j++;
+                while(*tab[i][j] != WSPACE)
+                {
+                    exp[k] = *tab[i][j];
+                    k++;
+                    j++;
+                }       
+            }
+                
             ++j;
         }
         ++i;
     }
+    return (exp);
+}
+
+static void make_var_env(char ***tab, char ***env)
+{
+    char *word;
+
+    word = find_env_word(tab, env); //on a donc le mot a chercher dans l'env//
+    if (is_it_env(word))
+    {
+        //remplacer le mot i guess?//
+    }
+    else
+        //erreur le $... n'existe pas//
+    
 }
 
 // il faut rajouter les types pour le '=' //
 
-void    parsing_main(char *input)
+void    parsing_main(char *input, char **env)
 {
     t_types *head = string_to_doubly_linked_list(input);
     t_types *current = head;
